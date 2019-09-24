@@ -1,0 +1,42 @@
+/*
+ * IF by Conor Hamilton -24/09/2019
+ * In this program three LEDS will turn on depending on whether a button is being pressed 
+ * as well as the amount of light being picked up by the LDR
+ * Green is high levels of light
+ * Yellow is moderate levels of light
+ * Red is little to no levels of light
+*/
+
+void setup()
+{
+  pinMode(8,OUTPUT);//Declares digital pin 8 as an output
+  pinMode(13,INPUT);//Declares digital pin 13 as an input
+  pinMode(12,INPUT);//Declares digital pin 12 as an input
+  pinMode(11,INPUT);//Declares digital pin 11 as an input
+  Serial.begin(9600);//Intiaties serial monitor
+}
+
+void loop()
+{
+  Serial.println(analogRead(0));//sends information from analog pin 0 to the serial monitor
+  
+  if(digitalRead(8)==HIGH && analogRead(0)>50 && analogRead(0)<99)//If the button is pressed and LDR reading is within range, turn on RED LED
+  {
+    digitalWrite(13,HIGH);
+  }
+  else if(digitalRead(8)==HIGH && analogRead(0)>100 && analogRead(0)<220)//If the button is pressed and LDR reading is within range, turn on YELLOW LED
+  {
+    digitalWrite(12,HIGH);
+  }
+  else if(digitalRead(8)==HIGH && analogRead(0)>250 && analogRead(0)<400)//If the button is pressed and LDR reading is within range, turn on GREEN LED
+  {
+    digitalWrite(11,HIGH);
+  }
+  else
+  {
+    //if button is not pressed turns off all LEDS
+    digitalWrite(13,LOW);
+    digitalWrite(12,LOW);
+    digitalWrite(11,LOW);
+  }
+}
