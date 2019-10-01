@@ -1,0 +1,97 @@
+/*
+ * Vapor Drive by Conor Hamilton -2/10/2019
+ * This progam fades LEDs in and out in a circular pattern akin to the spinning of a hard drive platter
+ * It starts with blue on one side and cycles to red on the other
+ * This program is accompanied by a vaporwave styled HDD case
+ * 
+ * Fading code sampled from arduino analog fade example
+ */
+int blue1=11;//Value assigned to blue LED connected to pin 11
+int blue2=10;//Value assigned to blue LED connected to pin 10
+int blue3=9;//Value assigned to blue LED connected to pin 9
+int red1=6;//Value assigned to red LED connected to pin 6
+int red2=5;//Value assigned to red LED connected to pin 5
+int red3=3;//Value assigned to red LED connected to pin 3
+
+void setup() 
+{
+ //no need to declare pin outputs as they are assigned above
+}
+
+void loop() 
+{
+  //BLUE LED FADE//
+  //BLUE LED #1
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 15)// fade in from min to max in increments of 15 points:
+  {
+    analogWrite(blue1, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 15)// fade out from max to min in increments of 15 points:
+  {
+    analogWrite(blue1, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+  
+  //BLUE LED #2
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 15)// fade in from min to max in increments of 15 points:
+  {
+    analogWrite(blue2, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 15)// fade out from max to min in increments of 15 points:
+  {
+    analogWrite(blue2, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+
+  //BLUE LED #3
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 15)// fade in from min to max in increments of 15 points:
+  {
+    analogWrite(blue3, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 15)// fade out from max to min in increments of 15 points:
+  {
+    analogWrite(blue3, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+  
+
+  //RED LED FADE//
+  //RED LED #1
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 15)// fade in from min to max in increments of 15 points:
+  {
+    analogWrite(red1, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 15)// fade out from max to min in increments of 15 points:
+  {
+    analogWrite(red1, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+
+  //RED LED #2
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 15)// fade in from min to max in increments of 15 points:
+  {
+    analogWrite(red2, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 15)// fade out from max to min in increments of 15 points:
+  {
+    analogWrite(red2, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+
+  //RED LED #3
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 15)// fade in from min to max in increments of 15 points:
+  {
+    analogWrite(red3, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 15)// fade out from max to min in increments of 15 points:
+  {
+    analogWrite(red3, fadeValue);// sets the value (range from 0 to 255):
+    delay(5);// wait for 10 milliseconds to see the dimming effect
+  }
+}
