@@ -1,0 +1,35 @@
+/*
+ * Motor by Conor Hamilton -08/10/2019
+ * This program adjusts the position of a servo based on the reading from an LDR
+*/
+
+#include <Servo.h>//Loads servo library
+Servo Frank;//Initiates servo named Frank
+int pos=0;//Store the position
+
+void setup()
+{
+  Frank.attach(9);//Assigns pin 9 to servo named Frank
+  Serial.begin(9600);//Intiaties serial monitor
+}
+
+void loop()
+{
+  Serial.println(analogRead(0));//sends information from analog pin 0 to the serial monitor
+  
+  if(analogRead(0)>180 && analogRead(0)<220)//If the reading is within range, Servo spins to 180
+  {
+    Frank.write(180);
+    delay(1000);
+  }
+  else if(analogRead(0)>300 && analogRead(0)<500)//If the reading is within range, Servo spins to 90 degrees of rotation
+  {
+    Frank.write(90);
+    delay(1000);
+  }
+  else
+  {
+    Frank.write(0);//Sets servo to 0 degrees of rotation if one of the above readings are not detected
+    delay(1000);
+  }
+}
