@@ -1,0 +1,48 @@
+/*
+ * Neopixel by Conor Hamilton -13/11/2019
+ * Plays a color wipe animation when a button is pressed and turns of when its not being pressed
+ */
+ 
+#include <Adafruit_NeoPixel.h> //Icludes Neopixel library for use in the program
+#define LED_PIN 6              //Defines the data pin for the Neopixel
+#define LED_COUNT 8            //Defines the number of LEDs on the Neopixel
+Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800); //Sets up Neopixel for use and names it strip
+
+const int button=7; //Declares pin 7 as the button pin
+int buttonState=0;  //Sets the buttons current state to 0 (just a placeholder)
+
+void setup() 
+{
+  pinMode(button, INPUT);  //The button as an input
+  strip.begin();           //Initialize NeoPixel
+  strip.show();            //Turns off all pixels
+  strip.setBrightness(50); //Sets brightness
+}
+
+void loop() 
+{ 
+  buttonState=digitalRead(button);
+
+  if(buttonState==HIGH)//If button is pressed the color wipe animation plays
+  {
+  // Colors to be used in the color wipe animation
+  colorWipe(strip.Color(0, 204, 204), 50); //Cyan
+  colorWipe(strip.Color(76, 0, 153), 50);  //Purple
+  colorWipe(strip.Color(255, 0, 0), 50);   //Red
+  colorWipe(strip.Color(76, 0, 153), 50);  //Purple
+  strip.show();
+  }
+  else//If button is not pressed Neopixel turns off
+  {
+    colorWipe(strip.Color(0, 0, 0), 50);  //Black
+  }
+}
+void colorWipe(uint32_t color, int wait) 
+{
+    for(int i=0; i<strip.numPixels(); i++)   //For each pixel in strip...
+    {
+      strip.setPixelColor(i, color);         //Set pixel's color (in RAM)
+      strip.show();                          //Update strip to match
+      delay(wait);                           //Pause for a moment
+    } 
+}
