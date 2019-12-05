@@ -1,0 +1,47 @@
+/*
+ * Defusal Dock by Conor Hamilton -13/11/2019
+ * This program blinks a red led until items of three different weights are placed in the correct order
+ * on the corresponding force sensor.
+ * Once this condition is met the led will turn from Red to Green.
+ */
+
+void setup() 
+{
+  pinMode(12,OUTPUT);//declares pin 13 as a digital output (Green LED)
+  pinMode(13,OUTPUT);//declares pin 13 as a digital output (Red LED)
+  Serial.begin(9600);//Intiaties serial monitor
+}
+
+void loop() 
+{ 
+  Serial.println(analogRead(0));//sends information from analog pin 0 to the serial monitor
+
+  //If the sensors detect the correct amount of force from each arduino the Red LED will turn off and the Green LED will turn on
+  if(analogRead(0)>820 && analogRead(0)<900 && analogRead(1)>720 && analogRead(1)<800 && analogRead(2)>620 && analogRead(2)<700)
+  {
+    digitalWrite (13,LOW);//Red LED off
+    digitalWrite (12,HIGH);//Green LED on
+  }
+  //The below code blinks the Red led constantly until the above if statement becomes true
+  else
+  {
+    digitalWrite(13,LOW);
+    delay(150);
+    digitalWrite(13,HIGH);
+    delay(150);
+    digitalWrite(13,LOW);
+    delay(150);
+    digitalWrite(13,HIGH);
+    delay(150);
+    digitalWrite(13,LOW);
+    delay(150);
+    digitalWrite(13,HIGH);
+    delay(150);
+    digitalWrite(13,LOW);
+    delay(150);
+    digitalWrite(13,HIGH);
+    delay(150);*/
+    digitalWrite (12,LOW);
+    
+  }
+}
