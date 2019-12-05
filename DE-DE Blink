@@ -1,0 +1,30 @@
+/*
+ * Blink by Conor Hamilton -17/09/2019
+ * This program blinks an LED three times then pauses
+*/
+
+int ledPin=13;//Value assigned to LED connected to pin 9
+
+void setup() 
+{
+  pinMode(13,OUTPUT);//declares pin 13 as a digital output
+}
+
+void loop()
+{
+  digitalWrite(13,LOW); //The code below blinks the LED three times
+  delay(300);
+  digitalWrite(13,HIGH);
+  delay(150);
+  digitalWrite(13,LOW);
+  delay(150);
+  digitalWrite(13,HIGH);
+  delay(150);
+  digitalWrite(13,LOW);
+  delay(150);
+  digitalWrite(13,HIGH);
+  delay(150);
+  digitalWrite(13,LOW);
+  delay(150);
+  digitalWrite(13,HIGH);
+}
